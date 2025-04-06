@@ -112,28 +112,28 @@ bool IntersectRayTriangle(
 
 // Scene constants
 Light scene_lights[] = {
-    Light("ambient", 0.6, Vector3D(), Vector3D()),
-    Light("point", 0.8, Vector3D(2, 1, 0), Vector3D()),
+    Light("ambient", 0.2, Vector3D(), Vector3D()),
+    Light("point", 0.6, Vector3D(2, 1, 0), Vector3D()),
     Light("directional", 0.2, Vector3D(), Vector3D(1, 4, 4))};
 
 Object *scene_objects[] = {
 
     new Triangle(
-        Vector3D(0, 0, 2),
+        Vector3D(0, 0, 5),
         Vector3D(1, 2, 4),
-        Vector3D(-1, 2, 6),
+        Vector3D(-1, 2, 4),
         Vector3D(1.0, 0.0, 0.0), // (255,0,0)
         0.0,                     // metallic
-        0.6,                     // roughness
-        0.7                      // reflective
+        0.1,                     // roughness
+        0.1                      // reflective
         ),
 
     new Sphere(
         Vector3D(0, -1, 3),
         1,
         Vector3D(1.0, 0.0, 0.0), // (255,0,0)
-        0.0,                     // metallic
-        0.1,                     // roughness
+        0.3,                     // metallic
+        0.3,                     // roughness
         0.1                      // reflective
         ),
 
@@ -141,9 +141,9 @@ Object *scene_objects[] = {
         Vector3D(2, 0, 4),
         1,
         Vector3D(0.0, 0.0, 1.0), // (0,0,255)
-        0.0,                     // metallic
-        0.1,                     // roughness
-        0.1                      // reflective
+        0.6,                     // metallic
+        0.8,                     // roughness
+        0.7                      // reflective
         ),
 
     new Sphere(
@@ -222,5 +222,5 @@ const double Vw = 1.0; // Viewport width
 const double Vh = 1.0; // Viewport height
 const double D = 1.0;  // Distance from camera to viewport
 const int MAX_RECURSION_DEPTH = 5;
-const int BACKGROUND_COLOR[3] = {135, 206, 235};
-// const int BACKGROUND_COLOR[3] = {0, 0, 0};
+// const int BACKGROUND_COLOR[3] = {135, 206, 235};
+const int BACKGROUND_COLOR[3] = {0, 0, 0};
