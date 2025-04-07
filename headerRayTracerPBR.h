@@ -112,107 +112,55 @@ bool IntersectRayTriangle(
 
 // Scene constants
 Light scene_lights[] = {
-    Light("ambient", 0.6, Vector3D(), Vector3D()),
-    Light("point", 0.8, Vector3D(2, 1, 0), Vector3D()),
+    Light("ambient", 0.2, Vector3D(), Vector3D()),
+    Light("point", 0.6, Vector3D(2, 1, 0), Vector3D()),
     Light("directional", 0.2, Vector3D(), Vector3D(1, 4, 4))};
 
 Object *scene_objects[] = {
 
     new Triangle(
-        Vector3D(0, 0, 2),
+        Vector3D(0, 0, 5),
         Vector3D(1, 2, 4),
-        Vector3D(-1, 2, 6),
+        Vector3D(-1, 2, 4),
         Vector3D(1.0, 0.0, 0.0), // (255,0,0)
         0.0,                     // metallic
-        0.6,                     // roughness
-        0.7                      // reflective
+        0.06,                    // roughness
+        0.5                      // reflective
         ),
 
-    new Sphere(
+    new Sphere( // red sphere
         Vector3D(0, -1, 3),
         1,
         Vector3D(1.0, 0.0, 0.0), // (255,0,0)
         0.0,                     // metallic
-        0.1,                     // roughness
-        0.1                      // reflective
+        0.06,                    // roughness
+        0.2                      // reflective
         ),
 
-    new Sphere(
+    new Sphere( // blue sphere
         Vector3D(2, 0, 4),
         1,
         Vector3D(0.0, 0.0, 1.0), // (0,0,255)
         0.0,                     // metallic
-        0.1,                     // roughness
-        0.1                      // reflective
+        0.06,                    // roughness
+        0.3                      // reflective
         ),
 
-    new Sphere(
+    new Sphere( // green sphere
         Vector3D(-2, 0, 4),
         1,
         Vector3D(0.0, 1.0, 0.0), // (0,255,0)
         0.0,                     // metallic
-        0.1,                     // roughness
-        0.1                      // reflective
-        ),
-    new Sphere(
-        Vector3D(-2, 2, 20),
-        1,
-        Vector3D(155.0 / 255.0, 10.0 / 255.0, 90.0 / 255.0), // (155,10,90)
-        0.0,                                                 // metallic
-        0.5,                                                 // roughness
-        0.1                                                  // reflective
+        0.41,                    // roughness
+        0.4                      // reflective
         ),
 
-    new Sphere(
-        Vector3D(6, 6, 20),
-        1,
-        Vector3D(214.0 / 255.0, 127.0 / 255.0, 45.0 / 255.0), // (214,127,45)
-        0.0,                                                  // metallic
-        0.5,                                                  // roughness
-        0.1                                                   // reflective
-        ),
-
-    new Sphere(
-        Vector3D(-6, 6, 15),
-        1,
-        Vector3D(45.0 / 255.0, 214.0 / 255.0, 172.0 / 255.0), // (45,214,172)
-        0.0,                                                  // metallic
-        0.5,                                                  // roughness
-        0.1                                                   // reflective
-        ),
-    new Sphere(
-        Vector3D(0, 2, 20),
-        1,
-        Vector3D(155.0 / 255.0, 10.0 / 255.0, 180.0 / 255.0),
-        0.0, // metallic
-        0.5, // roughness
-        0.1  // reflective
-        ),
-
-    new Sphere(
-        Vector3D(4, 6, 20),
-        1,
-        Vector3D(214.0 / 255.0, 187.0 / 255.0, 45.0 / 255.0),
-        0.0, // metallic
-        0.5, // roughness
-        0.1  // reflective
-        ),
-
-    new Sphere(
-        Vector3D(-4, 6, 17),
-        1,
-        Vector3D(195.0 / 255.0, 214.0 / 255.0, 172.0 / 255.0),
-        0.0, // metallic
-        0.5, // roughness
-        0.1  // reflective
-        ),
-
-    new Sphere(
+    new Sphere( // yellow sphere
         Vector3D(0, -5001, 0),
         5000,
         Vector3D(1.0, 1.0, 0.0), // (255,255,0)
         0.0,                     // metallic
-        0.1,                     // roughness
+        0.045,                   // roughness
         0.5                      // reflective
         )};
 
@@ -222,5 +170,5 @@ const double Vw = 1.0; // Viewport width
 const double Vh = 1.0; // Viewport height
 const double D = 1.0;  // Distance from camera to viewport
 const int MAX_RECURSION_DEPTH = 5;
-const int BACKGROUND_COLOR[3] = {135, 206, 235};
-// const int BACKGROUND_COLOR[3] = {0, 0, 0};
+// const int BACKGROUND_COLOR[3] = {135, 206, 235};
+const int BACKGROUND_COLOR[3] = {0, 0, 0};

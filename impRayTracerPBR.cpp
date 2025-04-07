@@ -311,6 +311,15 @@ Vector3D ComputeLighting(const Vector3D &point, const Vector3D &normal, const Ve
                                       ? (light.getPosition() - point).normalize()
                                       : light.getDirection().normalize();
 
+        // Shadow check: determine t_max based on light type.
+        double t_max = (light.getType() == "point") ? 1.0 : std::numeric_limits<double>::infinity();
+        double shadow_t;
+        const Object *shadow_object = closestIntersection(point, lightDirection, 0.001, t_max, shadow_t);
+        if (shadow_object != NULL)
+        {
+            continue; // point is in shadow; skip this light
+        }
+
         Vector3D H = (viewDirection + lightDirection).normalize();
         Vector3D F = FresnelSchlick(max((float)viewDirection.dotProduct(H), 0.0f), F0);
 
